@@ -1,0 +1,354 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+/* Header and Navigation */
+header {
+    background-color: #333;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Sections */
+.section {
+    padding: 40px 0;
+    text-align: center;
+}
+
+#home {
+    background-color: #fff;
+}
+
+#about {
+    background-color: #f9f9f9;
+}
+
+#portfolio {
+    background-color: #fff;
+}
+
+#contact {
+    background-color: #f9f9f9;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+/* Base styles for mobile devices (small screens) */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Responsive design for tablets and small screens */
+@media screen and (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+    
+    .container {
+        width: 90%;
+    }
+}
+
+/* Further responsiveness for smaller screens (mobile) */
+@media screen and (max-width: 480px) {
+    nav ul li a {
+        font-size: 16px;
+    }
+    
+    .container {
+        width: 100%;
+        padding: 0 10px;
+    }
+    
+    h1, h2 {
+        font-size: 1.5em;
+    }
+}
+/* Link hover effect */
+nav ul li a:hover {
+    color: #ff6347; /* Change text color to tomato on hover */
+    text-decoration: underline;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #ff6347; /* Change background color to tomato */
+    color: white;
+    transform: scale(1.05); /* Slightly increase size */
+    transition: transform 0.3s ease;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+form label {
+    font-size: 18px;
+}
+
+form input, form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+}
+
+form button {
+    padding: 12px;
+    border: none;
+    background-color: #333;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+form button:hover {
+    background-color: #ff6347; /* Tomato color */
+}
+/* Animation for fade-in effect */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Apply fade-in to sections */
+.section {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Delay animation on specific sections */
+#home {
+    animation-delay: 0.5s;
+}
+
+#about {
+    animation-delay: 1s;
+}
+
+#portfolio {
+    animation-delay: 1.5s;
+}
+
+#contact {
+    animation-delay: 2s;
+}
+/* Apply background image to the homepage */
+#home {
+    background: url('your-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white; /* Make text white for contrast */
+    padding: 100px 0;
+}
+
+#home h1 {
+    font-size: 3em;
+}
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+footer .social-media {
+    margin-top: 10px;
+}
+
+footer .social-media a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+footer .social-media a:hover {
+    color: #ff6347; /* Tomato color on hover */
+}
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+footer .social-media {
+    margin-top: 10px;
+}
+
+footer .social-media a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+footer .social-media a:hover {
+    color: #ff6347; /* Tomato color on hover */
+}
+/* Portfolio Section */
+#portfolio {
+    background-color: #fff;
+    padding: 40px 0;
+}
+
+#portfolio h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#portfolio p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    color: #555;
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 30px;
+}
+
+/* Portfolio Item Card */
+.portfolio-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.portfolio-item h3 {
+    font-size: 1.8em;
+    color: #333;
+    margin: 20px;
+}
+
+.portfolio-item p {
+    font-size: 1em;
+    color: #666;
+    margin: 0 20px 20px;
+}
+
+.portfolio-item .project-link {
+    display: inline-block;
+    margin: 0 20px 20px;
+    padding: 10px 15px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+.portfolio-item .project-link:hover {
+    background-color: #ff6347; /* Tomato color */
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+}
+
+/* Responsive Design: Make sure it looks good on smaller screens */
+@media screen and (max-width: 768px) {
+    #portfolio h2 {
+        font-size: 2.2em;
+    }
+
+    .portfolio-item h3 {
+        font-size: 1.6em;
+    }
+
+    .portfolio-item p {
+        font-size: 0.9em;
+    }
+}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fireworks Animation</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: black;
+        }
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="fireworksCanvas"></canvas>
+
+<script>
+// Set up canvas
+const canvas = document.getElementById('fireworksCanvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+// Utility functions
+function random(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+function randomInt(min, max) {
+    return Math.floor(random(min, max));
+}
+
+// Particle class to represent each particle in a firework
+class Particle {
+    constructor(x, y, color, radius, velocityX, velocityY) {
+        this.x = x;
+        this.y = y;
+        this.color = color;
+        this.radius = radius;
+        this.velocityX = velocityX;
+        this.velocityY = velocityY;
+        this.life = 1; // Particle life (0 to 1)
+    }
+
+    update() {
+        this.x += this.velocityX;
+        this.y += this.velocityY;
+        this.velocityY += 0.02; // Gravity effect
+        this.life -= 0.01; // Decay life
+    }
+
+    draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+    }
+}
+
+// Firework class to represent the fireworks explosion
+class Firework {
+    constructor(x, y, color, particleCount) {
+        this.x = x;
+        this.y = y;
+        this.color = color;
+        this.particles = [];
+        this.particleCount = particleCount;
+
+        // Create particles
+        for (let i = 0; i < particleCount; i++) {
+            const angle = random(0, Math.PI * 2);
+            const speed = random(2, 5);
+            const velocityX = Math.cos(angle) * speed;
+            const velocityY = Math.sin(angle) * speed;
+            const radius = random(2, 3);
+            const particleColor = this.color;
+            this.particles.push(new Particle(this.x, this.y, particleColor, radius, velocityX, velocityY));
+        }
+    }
+
+    update() {
+        // Update all particles
+        this.particles.forEach(particle => particle.update());
+    }
+
+    draw() {
+        // Draw all particles
+        this.particles.forEach(particle => particle.draw());
+    }
+
+    isDead() {
+        // Check if all particles are gone
+        return this.particles.every(particle => particle.life <= 0);
+    }
+}
+
+// Array to store fireworks
+const fireworks = [];
+
+// Create a random firework at a random position
+function createFirework() {
+    const x = randomInt(100, canvas.width - 100);
+    const y = randomInt(100, canvas.height - 100);
+    const color = `hsl(${randomInt(0, 360)}, 100%, 60%)`; // Random color
+    const particleCount = randomInt(50, 100);
+    fireworks.push(new Firework(x, y, color, particleCount));
+}
+
+// Animation loop
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Create a new firework occasionally
+    if (Math.random() < 0.05) {
+        createFirework();
+    }
+
+    // Update and draw fireworks
+    fireworks.forEach((firework, index) => {
+        firework.update();
+        firework.draw();
+        if (firework.isDead()) {
+            fireworks.splice(index, 1); // Remove dead firework
+        }
+    });
+
+    requestAnimationFrame(animate);
+}
+
+// Start the animation
+animate();
+</script>
+
+</body>
+</html>
